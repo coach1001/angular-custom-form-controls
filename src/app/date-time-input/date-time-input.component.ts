@@ -73,6 +73,7 @@ export class DateTimeInput
   }
   
   writeValue(value: any) {
+    console.log(value);
     if (value !== undefined) {
       this.value = value;      
     }

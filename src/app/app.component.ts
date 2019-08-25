@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { cloneDeep } from 'lodash-es';
 
 export interface ControlOption {
   key: any,
@@ -16,7 +17,11 @@ export class AppComponent implements OnInit {
 
   formGroup: FormGroup = null;
   options: Array<ControlOption> = [];
-
+  formValue: any = {
+    email: 'coach1001@gmail.com',
+    dateTime: new Date(),
+    wallDamages: [0,2]
+  }
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {    
@@ -26,14 +31,16 @@ export class AppComponent implements OnInit {
       wallDamages: [null, [Validators.required]]
     });
 
-    this.formGroup.controls['wallDamages'].valueChanges.subscribe((val) =>{
-      console.log(val);
-    });
+    this.formGroup.patchValue(cloneDeep(this.formValue));
 
     this.options.push(
       { key: 0, value: 'Option - 1'},
       { key: 1, value: 'Option - 2'},
       { key: 2, value: 'Option - 3'}
     )
+  }
+
+  reset() {
+    this.formGroup.patchValue(cloneDeep(this.formValue));
   }
 }
