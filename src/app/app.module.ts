@@ -16,10 +16,11 @@ import {
 import { AppComponent } from './app.component';
 import { EmailAddressInputComponent } from './email-address-input/email-address-input.component';
 import { DateTimeInput } from './date-time-input/date-time-input.component';
+import { SelectButtonInputComponent }  from './select-button-input/select-button-input.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, EmailAddressInputComponent, DateTimeInput],
+  declarations: [AppComponent, EmailAddressInputComponent, DateTimeInput, SelectButtonInputComponent],
   imports: [
     BrowserModule,
     FormsModule,
