@@ -39,13 +39,13 @@ export class EmailAddressInputComponent
     }
   }
 
-  addEvent($event) {
+  addEvent($event) {    
     this.value = this.username + '@' + this.emailProvider;
     this.propagateChange(this.value);
   }
 
   /* Takes the value  */
-  writeValue(value: any) {
+  writeValue(value: any) {    
     if (value !== undefined) {
       this.value = value;
       this.propagateChange(this.value);

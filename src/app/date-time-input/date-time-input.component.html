@@ -1,0 +1,28 @@
+<div fxFlex="100" fxLayout="row" fxLayoutGap="10px" style="padding: 10px">
+  <mat-form-field floatLabel="always">
+    <mat-label>Date</mat-label>
+    <input matInput (blur)="emitTime($event)" (dateChange)="emitTime($event)" [(ngModel)]="date" placeholder="Date"
+      [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="start center">
+    <mat-form-field floatLabel="always" class="control time-max-width">
+      <mat-label>Time</mat-label>
+      <mat-select class="time-picker" (selectionChange)="emitTime($event)" [(ngModel)]="hours">
+        <mat-option *ngFor="let item of hoursLookup" [value]="item">
+          {{ item.toString().padStart(2, '0') }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>    
+    <div class="out-font purple-dark bold">:</div>
+    <mat-form-field floatLabel="always" class="control time-max-width">
+      <mat-label></mat-label>
+      <mat-select class="time-picker" (selectionChange)="emitTime($event)" [(ngModel)]="minutes">
+        <mat-option *ngFor="let item of minutesLookup" [value]="item">
+          {{ item.toString().padStart(2, '0') }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

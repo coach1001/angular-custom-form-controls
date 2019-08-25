@@ -11,16 +11,12 @@ export class AppComponent implements OnInit {
 
   formGroup: FormGroup = null;
 
-  public email = 'mainawycliffe@theinfogrid.com';
-
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {
+  ngOnInit() {    
     this.formGroup = this.fb.group({
-      email: [this.email, [Validators.email]],
-      email2: ['@theinfogrid.com', [Validators.email]],
-      email3: ['hello', [Validators.email]],
-      email4: [null, [Validators.email]]
+      email: [null, [Validators.required, Validators.email]],
+      dateTime: [null, [Validators.required]]
     });
   }
 }

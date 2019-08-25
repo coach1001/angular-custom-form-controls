@@ -6,14 +6,20 @@ import {
   MatInputModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatCardModule
+  MatCardModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatAutocompleteModule,
+  MatSelectModule,
+  MatButtonToggleModule
 } from '@angular/material';
 import { AppComponent } from './app.component';
 import { EmailAddressInputComponent } from './email-address-input/email-address-input.component';
+import { DateTimeInput } from './date-time-input/date-time-input.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, EmailAddressInputComponent],
+  declarations: [AppComponent, EmailAddressInputComponent, DateTimeInput],
   imports: [
     BrowserModule,
     FormsModule,
@@ -23,9 +29,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatButtonToggleModule
   ],
-  providers: [],
+  providers: [
+    MatNativeDateModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
