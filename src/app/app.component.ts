@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
   formValue: any = {
     email: 'coach1001@gmail.com',
     dateTime: new Date(),
-    wallDamages: [0,2]
+    wallDamages: [0,2],
+    firstName: 'Francois'
   }
   constructor(private fb: FormBuilder) {}
 
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
     this.formGroup = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       dateTime: [null, [Validators.required]],
-      wallDamages: [null, [Validators.required]]
+      wallDamages: [null, [Validators.required]],
+      firstName: [null, [Validators.required]]
     });
 
     this.formGroup.patchValue(cloneDeep(this.formValue));

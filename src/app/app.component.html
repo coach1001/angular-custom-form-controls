@@ -1,10 +1,5 @@
-<div fxLayout="column" fxFlex="600px" fxFlex.xs="100" fxFlexOffset="calc(50% - 300px)" fxFlexOffset.xs="0">
+<div fxLayout="column" fxFlex="600px" fxFlex.xs="100" fxFlexOffset="calc(50% - 300px)" fxFlexOffset.xs="0" fxLayoutGap="20px">
   <form [formGroup]="formGroup" fxLayout="column">
-    <div fxFlex="100">
-      <app-email-address-input formControlName="email"></app-email-address-input>
-      <mat-error *ngIf="formGroup.controls['email'].hasError('required')">Your email is required</mat-error>
-      <mat-error *ngIf="formGroup.controls['email'].hasError('email')">Your email is invalid email</mat-error>
-    </div>
     <div fxFlex="100">
       <date-time-input formControlName="dateTime"></date-time-input>
       <mat-error *ngIf="formGroup.controls['dateTime'].hasError('required')">Date and time is required</mat-error>
@@ -12,7 +7,10 @@
     <div fxFlex="100">
         <app-select-button-input formControlName="wallDamages" [options]="options"></app-select-button-input>
         <mat-error *ngIf="formGroup.controls['wallDamages'].hasError('required')">Wall damages required</mat-error>
-    </div>    
+    </div>
+    <div fxFlex="100">
+      <textarea fxFlex formControlName="firstName"></textarea>
+    </div>  
     </form>
-    <button (click)="reset()">RESET</button>
+    <button mat-raised-button (click)="reset()" color="primary">RESET</button>
 </div>
